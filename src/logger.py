@@ -1,5 +1,6 @@
 import logging 
 import os
+import sys
 from datetime import datetime
 
 #logs the data 
@@ -15,5 +16,5 @@ logging.basicConfig(
     format = "[%(asctime)s] %(lineno)d - %(levelname)s - %(message)s",
     level=logging.INFO,
 )
-if __name__=="__main__":
-    logging.info("Logging has started")
+
+logger = logging.getLogger(__name__)
