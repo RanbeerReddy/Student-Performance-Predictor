@@ -6,4 +6,6 @@ scikit-learn
 catboost
 xgboost
 tqdm
+pickle
+dill
 #-e . 

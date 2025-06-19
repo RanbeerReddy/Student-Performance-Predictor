@@ -4,7 +4,7 @@ from src.exception import CustomeException
 from src.logger import logger
 import logging
 import pandas as pd
-
+from src.components.data_transformation import DataTransformation
 
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
@@ -41,8 +41,12 @@ class DataIngestion:
             )
 
         except Exception as e:
-            raise CustomeException(e)
+            raise CustomeException(e, sys)
 
 if __name__=="__main__":
     obj = DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data, test_data = obj.initiate_data_ingestion()
+
+    transformation_obj = DataTransformation()
+    transformation_obj.initiate_data_tranformation(train_data, test_data)
+
