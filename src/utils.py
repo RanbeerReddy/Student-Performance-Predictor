@@ -21,6 +21,17 @@ def save_obj(file_path, obj):
     except Exception as e:
         raise Exception(e, sys)
     
+def load_obj(file_path):
+    try:
+        dir_path = os.path.dirname(file_path)
+        os.makedirs(dir_path, exist_ok=True)
+        with open(file_path, "rb") as file_obj:
+            read_obj = pickle.load(file_obj)
+
+        return read_obj
+    except Exception as e:
+        raise Exception(e, sys)
+    
 def evaluate_model(X_train, y_train, X_test, y_test, models):
     try:
         def model_evaluation(y_test, pred):
